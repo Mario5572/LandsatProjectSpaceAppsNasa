@@ -24,10 +24,10 @@ app.get('/locationPicker', (req,res) =>{
     res.sendFile(path.join(__dirname, 'public', 'locationPicker.html'))
 })
 
-app.get('/mapstyles/darkMap.json', ()=>{
+app.get('/mapstyles/darkMap.json', (req,res)=>{
     res.sendFile(path.join(__dirname, 'public', 'mapStyles', 'darkMap.json'))
 })
-app.get('/mapstyles/lightMap.json', ()=>{
+app.get('/mapstyles/lightMap.json', (req,res)=>{
     res.sendFile(path.join(__dirname, 'public', 'mapStyles', 'lightMap.json'))
 })
 app.get('/liveDemo', (req,res)=>{
@@ -36,6 +36,7 @@ app.get('/liveDemo', (req,res)=>{
 app.post('/request', (req, res) => {
     console.log('Received POST request:', req.body); // Log the received data
     const { name, gmail, lng, lat } = req.body;
+    if(name == undefined || gmail == undefined || lng == undefined ||lat == undefined) return -1
     console.log(`Name: ${name}, Gmail: ${gmail}, Location: ${lat} lat ${lng} long`);
     getData(lat,lng,name).then(()=>{
         sendEmail({
