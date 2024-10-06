@@ -1,0 +1,213 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+/* Reset and base styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    transition: 0.5s;
+  }
+  
+  /* Light mode styles */
+  body.light-mode {
+    background-color: #f3f3f3;
+    color: #2c2c2f;
+  }
+  
+  /* Dark mode styles */
+  body.dark-mode {
+    background-color: #2c2c2f;
+    color: #f3f3f3;
+  }
+  
+  body.dark-mode input[type="text"] {
+    color: #f3f3f3;
+  }
+  
+  body.dark-mode button {
+    background-color: #474747;
+    color: #f3f3f3;
+    border: 1px solid #777;
+  }
+  
+  body.dark-mode button:hover {
+    background-color: #5b5b5b;
+    border-color: #5b5b5b;
+  }
+  
+  /* Additional button styles */
+  button {
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s, border-color 0.3s;
+  }
+  
+  /* Hide the checkbox */
+  #toggle {
+    display: none;
+  }
+  
+  .display {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: white;
+  }
+  
+  #milabel {
+    width: 150px;
+    height: 75px;
+    border-radius: 999px;
+    background: #f3f3f3;
+    box-shadow: 10px 10px 30px rgba(0, 0, 0, 0.05) inset;
+    cursor: pointer;
+    position: relative;
+  }
+  
+  .circle {
+    width: 60px;
+    height: 60px;
+    border-radius: 99px;
+    background: white;
+    box-shadow: 10px 10px 30px rgba(0, 0, 0, 0.05),
+      -10px -10px 30px rgba(0, 0, 0, 0.05) inset;
+    position: absolute;
+    top: 50%;
+    left: 0%;
+    transform: translate(10%, -50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+  
+  svg {
+    width: 30px;
+    position: absolute;
+  }
+  
+  .sun {
+    color: #ffd600;
+    size: 10%;
+    margin-top: 0%;
+  }
+  
+  .moon {
+    margin-top: -150%;
+    color: white;
+  }
+  
+  input[type="checkbox"]:checked + .display {
+    background: #2c2c2f;
+  }
+  
+  input[type="checkbox"]:checked + .display #milabel {
+    background: #1f1f21;
+    box-shadow: 10px 10px 30px rgba(0, 0, 0, 0.5) inset;
+  }
+  
+  input[type="checkbox"]:checked + .display #milabel .circle {
+    left: 100%;
+    transform: translate(-110%, -50%);
+    background: #2c2c2f;
+    box-shadow: 10px 10px 30px rgba(0, 0, 0, 0.5),
+      -10px -10px 30px rgba(0, 0, 0, 0.5) inset;
+  }
+  
+  input[type="checkbox"]:checked + .display #milabel .circle .sun {
+    margin-top: 150%;
+  }
+  
+  input[type="checkbox"]:checked + .display #milabel .circle .moon {
+    /* lachoso */
+    margin-top: 0%;
+  }
+
+  #dropdown-toggle1:checked ~ #dropdown-menu1 {
+    display: block !important; /* Fuerza que el menú se muestre */
+}
+
+#dropdown-menu1 {
+  display: none;
+  background-color: white;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  position: absolute;
+  width: 100%;
+  max-height: 200px; /* Establece la altura máxima deseada */
+  overflow-y: auto; /* Habilita el desplazamiento vertical */
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  z-index: 10;
+}
+
+
+#dropdown-menu1 label {
+    cursor: pointer;
+}
+
+#dropdown-menu1 input[type="checkbox"] {
+  width: 16px;
+  height: 16px;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  margin-right: 8px;
+  position: relative;
+}
+
+#dropdown-menu1 input[type="checkbox"]:checked {
+  background-color: #4CAF50; /* Color cuando esté chequeado */
+  border-color: #4CAF50;
+}
+
+#dropdown-menu1 input[type="checkbox"]:checked::before {
+  position: absolute;
+  left: 3px;
+  top: 0px;
+  color: white;
+}
+
+#dropdown-toggle2:checked ~ #dropdown-menu2 {
+  display: block !important; /* Fuerza que el menú se muestre */
+}
+
+#dropdown-menu2 {
+display: none;
+background-color: white;
+border: 1px solid #ccc;
+border-radius: 4px;
+position: absolute;
+width: 100%;
+max-height: 200px; /* Establece la altura máxima deseada */
+overflow-y: auto; /* Habilita el desplazamiento vertical */
+box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+z-index: 10;
+}
+
+
+#dropdown-menu2 label {
+  cursor: pointer;
+}
+
+#dropdown-menu2 input[type="radio"] {
+width: 16px;
+height: 16px;
+border: 2px solid #ccc;
+border-radius: 4px;
+margin-right: 8px;
+position: relative;
+}
+
+#dropdown-menu2 input[type="radio"]:checked {
+background-color: #4CAF50; /* Color cuando esté chequeado */
+border-color: #4CAF50;
+}
+
+#dropdown-menu2 input[type="radio"]:checked::before {
+position: absolute;
+left: 3px;
+top: 0px;
+color: white;
+}

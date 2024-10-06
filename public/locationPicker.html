@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/output.css" />
+    <script src="https://api.mapbox.com/mapbox-gl-js/v3.6.0/mapbox-gl.js"></script>
+    <link
+      href="https://api.mapbox.com/mapbox-gl-js/v3.6.0/mapbox-gl.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div id="container" class="grid w-full min-h-screen grid-cols-1 lg:grid-cols-3">
+      <div
+      class="relative hidden overflow-hidden rounded-r-3xl bg-gradient-to-r from-primary to-secondary lg:block lg:col-span-2"
+      >
+        <div id="map" class="absolute top-0 bottom-0 w-full h-full"></div>
+      </div>
+      <div class="grid w-full min-h-screen grid-rows-1 lg:grid-rows-11">
+        <div>
+          <input type="checkbox" id="toggle">
+          <div class="display">
+            <label id="milabel" for="toggle">
+              <div class="circle">
+                <svg class="sun" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M12 2.25a.75.75 0 0 1 .75.75v2.25a.75.75 0 0 1-1.5 0V3a.75.75 0 0 1 .75-.75ZM7.5 12a4.5 4.5 0 1 1 9 0 4.5 4.5 0 0 1-9 0ZM18.894 6.166a.75.75 0 0 0-1.06-1.06l-1.591 1.59a.75.75 0 1 0 1.06 1.061l1.591-1.59ZM21.75 12a.75.75 0 0 1-.75.75h-2.25a.75.75 0 0 1 0-1.5H21a.75.75 0 0 1 .75.75ZM17.834 18.894a.75.75 0 0 0 1.06-1.06l-1.59-1.591a.75.75 0 1 0-1.061 1.06l1.59 1.591ZM12 18a.75.75 0 0 1 .75.75V21a.75.75 0 0 1-1.5 0v-2.25A.75.75 0 0 1 12 18ZM7.758 17.303a.75.75 0 0 0-1.061-1.06l-1.591 1.59a.75.75 0 0 0 1.06 1.061l1.591-1.59ZM6 12a.75.75 0 0 1-.75.75H3a.75.75 0 0 1 0-1.5h2.25A.75.75 0 0 1 6 12ZM6.697 7.757a.75.75 0 0 0 1.06-1.06l-1.59-1.591a.75.75 0 0 0-1.061 1.06l1.59 1.591Z" />
+                </svg>
+                <svg class="moon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                  <path fill-rule="evenodd" d="M9.528 1.718a.75.75 0 0 1 .162.819A8.97 8.97 0 0 0 9 6a9 9 0 0 0 9 9 8.97 8.97 0 0 0 3.463-.69.75.75 0 0 1 .981.98 10.503 10.503 0 0 1-9.694 6.46c-5.799 0-10.5-4.7-10.5-10.5 0-4.368 2.667-8.112 6.46-9.694a.75.75 0 0 1 .818.162Z" clip-rule="evenodd" />
+                </svg>                
+              </div>
+            </label>
+          </div>
+        </div>
+
+        <div class="flex items-center justify-center p-6 sm:p-10 md:p-16 lg:row-span-10">
+          <div class="mx-auto w-full max-w-md space-y-6">
+            <div class="space-y-2 text-center">
+              <h1 class="text-3xl font-bold">Enter your Data</h1>
+              <p class="text-muted-foreground">
+                Specify the gmail you want to be notified to
+              </p>
+            </div>
+            <form class="space-y-4">
+              <div class="space-y-2">
+                <label
+                  class="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+                  for="name"
+                >
+                  Name
+                </label>
+                <input
+                  class="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
+                  id="name"
+                  placeholder="John Doe"
+                />
+              </div>
+              <div class="space-y-2 relative">
+                <input type="checkbox" id="dropdown-toggle1" class="hidden">
+                <label for="dropdown-toggle1" class="w-full block bg-background border border-input rounded-md px-3 py-2 cursor-pointer">
+                  Select data to retreive
+                </label>
+                <div id="dropdown-menu1" class="absolute w-full bg-background border border-input rounded-md hidden mt-1">
+                  <label class="block px-3 py-2" title="SR_B1">
+                    <input type="checkbox" value="SR_B1"> Sensitive to atmospheric aerosols (SR_B1)
+                  </label>
+                  <label class="block px-3 py-2" title="SR_B2">
+                    <input type="checkbox" value="SR_B2"> Microbes in shallow water (SR_B2)
+                  </label>
+                  <label class="block px-3 py-2" title="SR_B3">
+                    <input type="checkbox" value="SR_B3"> Reflectance of healthy vegetation (SR_B3)
+                  </label>
+                  <label class="block px-3 py-2" title="SR_B4">
+                    <input type="checkbox" value="SR_B4"> Absorbed by chlorophyll in plants (SR_B4)
+                  </label>
+                  <label class="block px-3 py-2" title="SR_B5">
+                    <input type="checkbox" value="SR_B5"> Highly reflected by vegetation (SR_B5)
+                  </label>
+                  <label class="block px-3 py-2" title="SR_B6">
+                    <input type="checkbox" value="SR_B6"> Soil moisture (SR_B6)
+                  </label>
+                  <label class="block px-3 py-2" title="SR_B7">
+                    <input type="checkbox" value="SR_B7"> Differenciate rock types (SR_B7)
+                  </label>
+                  <label class="block px-3 py-2" title="QA_PIXEL">
+                    <input type="checkbox" value="QA_PIXEL"> Pixel quality indicators (QA_PIXEL)
+                  </label>
+                  <label class="block px-3 py-2" title="QA_RADSAT">
+                    <input type="checkbox" value="QA_RADSAT"> Saturated pixels (QA_RADSAT)
+                  </label>
+                  <label class="block px-3 py-2" title="QA_LINEAGE">
+                    <input type="checkbox" value="QA_LINEAGE"> Data processing history (QA_LINEAGE)
+                  </label>
+                  <label class="block px-3 py-2" title="SR_QA_AEROSOL">
+                    <input type="checkbox" value="SR_QA_AEROSOL"> Atmospheric quality influenced by aerosols (SR_QA_AEROSOL)
+                  </label>
+                </div>
+              </div>
+              <div class="space-y-2 relative">
+                <input type="checkbox" id="dropdown-toggle2" class="hidden">
+                <label for="dropdown-toggle2" class="w-full block bg-background border border-input rounded-md px-3 py-2 cursor-pointer">
+                  Lead time for notification
+                </label>
+                <div id="dropdown-menu2" class="absolute w-full bg-background border border-input rounded-md hidden mt-1">
+                  <label class="block px-3 py-2">
+                    <input type="radio" name="options" value="5min"> 5 minutes before
+                  </label>
+                  <label class="block px-3 py-2">
+                    <input type="radio" name="options" value="10min"> 10 minutes before
+                  </label>
+                  <label class="block px-3 py-2">
+                    <input type="radio" name="options" value="30min"> 30 minutes before
+                  </label>
+                  <label class="block px-3 py-2">
+                    <input type="radio" name="options" value="1hr"> 1 hour before
+                  </label>
+                  <label class="block px-3 py-2">
+                    <input type="radio" name="options" value="5hr"> 5 hours before
+                  </label>
+                  <label class="block px-3 py-2">
+                    <input type="radio" name="options" value="12hr"> 12 hours before
+                  </label>
+                  <label class="block px-3 py-2">
+                    <input type="radio" name="options" value="24hr"> 24 hours before
+                  </label>
+                </div>
+              </div>
+              <div class="space-y-2">
+                <label
+                  class="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+                  for="email"
+                >
+                  Email
+                </label>
+                <input
+                  class="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
+                  type="email"
+                  id="email"
+                  placeholder="m@example.com"
+                />
+              </div>
+              <div class="bg-stone-800 hover:bg-stone-700 h-10 rounded-md">
+                <button
+                  id="formSubmit"
+                  class="text-center mx-auto text-stone-200 w-full h-full"
+                  type="submit"
+                >
+                  Notify me
+                </button>
+                <script>
+                  const button = document.getElementById('formSubmit')
+                  button.onclick = function(event) {
+                    event.preventDefault(); 
+                    console.log("Mando la request al server")
+                    const email = document.getElementById('email').value; 
+                    const name = document.getElementById('name').value
+                    const localizacion = marker.getLngLat()
+                    console.log(markerLat)
+                    fetch('/request', {
+                      method: 'POST',
+                      headers: {
+                        'Content-Type': 'application/json',
+                      },
+                      body: JSON.stringify({name: name, gmail: email, lng: markerLng, lat: markerLat }),
+                    })
+                    .then(response => response.json())
+                    .then(data => {
+                      console.log('Success:', data);
+                    })
+                    .catch((error) => {
+                      console.error('Error:', error);
+                    });
+                  };
+                </script>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="/js/map.js"></script>
+  </body>
+</html>

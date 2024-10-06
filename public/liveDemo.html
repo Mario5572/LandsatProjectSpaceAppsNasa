@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/css/output.css">
+    <script src="https://api.mapbox.com/mapbox-gl-js/v3.6.0/mapbox-gl.js"></script>
+    <link
+      href="https://api.mapbox.com/mapbox-gl-js/v3.6.0/mapbox-gl.css"
+      rel="stylesheet"
+    />
+</head>
+<body>
+    <div class=" min-h-[100dvh] flex-col items-center justify-start bg-background pt-10">
+        <div class="container px-4 pt-4 md:px-6 lg:px-8 h-auto">
+          <div class="text-center">
+            <h1 class="text-3xl font-bold tracking-tight text-foreground sm:text-4xl md:text-5xl">
+              Live Demo
+            </h1>
+            <p class="mt-4 text-muted-foreground md:text-xl">
+              When you push this button you will be revealed the location of the landsat
+            </p>
+            <button class="w-full bg-stone-900 text-stone-200 text-lg py-2" id="buttonLocator">Show where landsat is</button>
+          </div>    
+          <div class="mt-2 w-full rounded-lg border bg-card p-6 shadow-sm h-[60vh]" id="map">
+            
+          </div>
+          <script type="module" src="/js/liveDemo.js"></script>
+        </div>
+      </div>
+</body>
+</html>

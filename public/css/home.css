@@ -1,0 +1,336 @@
+@font-face {
+    src: url(../fonts/PlaywriteDEGrund-Thin.ttf);
+    font-family: Playwrite;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: black;
+}
+
+nav {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 1000;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+}
+
+nav ul li {
+    margin-right: 20px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+}
+#button-home {
+    padding: 10px 20px;
+    background-color: transparent;
+    color: #333; /* Color del texto */
+    border: none;
+    cursor: pointer;
+    border-radius: 7px; /* Bordes redondeados */
+    position: relative;
+    overflow: hidden;
+    transition: color 0.3s ease;
+}
+
+#button-home::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 300%;
+    height: 300%;
+    background: radial-gradient(circle, rgba(211, 211, 211, 0.5), rgba(192, 192, 192, 0.2));
+    border-radius: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    transition: transform 0.5s ease;
+    z-index: 0;
+}
+
+#button-home:hover::before {
+    transform: translate(-50%, -50%) scale(1);
+}
+
+#button-home:hover {
+    color: black; /* Cambia el color del texto al hacer hover */
+}
+
+#button-home span {
+    position: relative;
+    z-index: 1; /* Asegura que el texto esté encima de la animación */
+}
+
+/* Botón About Us */
+#button-about-us {
+    padding: 10px 20px;
+    background-color: transparent;
+    color: #333; /* Color del texto */
+    border: none;
+    cursor: pointer;
+    border-radius: 7px; /* Bordes redondeados más sutiles */
+    position: relative;
+    overflow: hidden;
+    transition: color 0.3s ease;
+}
+
+#button-about-us::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 300%;
+    height: 300%;
+    background: radial-gradient(circle, rgba(211, 211, 211, 0.5), rgba(192, 192, 192, 0.2));
+    border-radius: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    transition: transform 0.5s ease;
+    z-index: 0;
+}
+
+#button-about-us:hover::before {
+    transform: translate(-50%, -50%) scale(1);
+}
+
+#button-about-us:hover {
+    color: black; /* Cambia el color del texto al hacer hover */
+}
+
+#button-about-us span {
+    position: relative;
+    z-index: 1; /* Asegura que el texto esté encima de la animación */
+}
+
+
+#request-data {
+    padding: 10px 20px;
+    background-color: #ff5722;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 7px;
+    position: relative;
+    overflow: hidden;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+#request-data:hover {
+    background-color: #ffeb3b;
+    color: black;
+    box-shadow: 0 0 15px rgba(255, 235, 59, 0.6), 0 0 5px rgba(255, 235, 59, 0.4);
+}
+
+#request-data::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.5), rgba(255, 235, 59, 0) 70%);
+    transition: transform 0.4s ease;
+    transform: translate(-50%, -50%) scale(0);
+    pointer-events: none;
+    z-index: 1;
+}
+
+#request-data:hover::before {
+    transform: translate(-50%, -50%) scale(1);
+}
+
+@keyframes sparkles {
+    0% {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(0);
+    }
+    50% {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1.2);
+    }
+    100% {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(0);
+    }
+}
+
+
+
+.full-screen {
+    position: relative;
+    height: 100vh;
+    width: 100%;
+    background-image: url('../images/landsatBUENO.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+.container {
+    display: flex;
+    justify-content: space-between; /* Separar los dos divs */
+    width: 100%;
+    padding: 0 50px;
+    color: white; /* Cambiar el color para que el texto sea legible sobre el fondo */
+}
+
+.left-content {
+    flex: 1;
+    text-align: left;
+}
+
+.right-content {
+    flex: 1;
+    text-align: right;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: column;
+    padding-left: 50px;
+    background-color: rgba(0, 0, 0, 0.1);
+    color: rgb(40, 40, 40);
+}
+
+.overlay h1 {
+    font-size: 64px;
+    font-weight: bold;
+    font-family: 'Oswald', sans-serif;
+    margin-top: 100px; /* Ajusta la distancia desde la parte superior */
+}
+
+.left-content h1, .right-content {
+    margin-top: 100px;
+    font-size: 64px;
+    font-family: 'Oswald', sans-serif;
+}
+
+.subtitle {
+    font-size: 25px;
+    margin-top: 10px;
+}
+
+.right-content p {
+    font-size: 18px;
+}
+
+#about-us {
+    background-color: #262626;
+    color: aliceblue;
+    font-size: 18px;
+}
+
+#about-us h2 {
+    font-size: 32px;
+}
+
+#footer {
+    background-color: rgb(113, 136, 180);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#spaceAppsLogo, #elNexo, #nasa, #avincis {
+    padding: 10px;
+    width: 100px;
+}
+
+#slider {
+    display: flex;
+    width: 100%;
+    height: 600px;
+    overflow: hidden;
+}
+
+#slider div {
+    width: 25%;
+    flex-grow: 1;
+    position: relative;
+    background-size: cover;
+    background-position: center;
+    overflow: hidden;
+    opacity: 0.8;
+    transition: transform 0.5s ease, opacity 0.5s ease;
+    transform: scale(1); /* Inicialmente la escala está en 1 */
+    transform-origin: center center; /* El origen de la transformación es el centro */
+    display:flex;
+    justify-content: center;
+}
+
+#slider div h2 {
+    font-family: 'Times New Roman', Times, serif;
+    height: 8%;
+    margin-top: 10px;
+    padding: 5px;
+    background-color: rgb(18, 38, 71);
+    border-radius: 10px;
+}
+
+#ourselves {
+    background-image: url(../images/grupito.jpg);
+}
+#pageInfo {
+    background-image: url(../images/fondoInfo.jpeg);
+}
+#reqData {
+    background-image: url(../images/fondoMapa.jpg);
+}
+#contact {
+    background-image: url(../images/fondoMail.jpg);
+}
+
+#slider div:hover {
+    transform: scale(1.33); /* Aumenta la escala al hacer hover */
+    opacity: 1;
+    filter: contrast(120%);
+    z-index: 10;
+}
+
+.hidden-text {
+    font-family: Playwrite;
+    padding: 10px;
+    letter-spacing: 0px;
+    position: absolute;
+    color: white;
+    font-size: 18px;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+/* Mostrar el texto al hacer hover */
+#slider div:hover .hidden-text {
+    opacity: 1;
+    visibility: visible;
+    background-color: rgb(18, 38, 71);
+    border-radius: 10px;
+}

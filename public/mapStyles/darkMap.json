@@ -1,0 +1,107 @@
+{
+  "version": 8,
+  "name": "Enhanced Dark Mode",
+  "sources": {
+    "mapbox-streets": {
+      "type": "vector",
+      "url": "mapbox://mapbox.mapbox-streets-v8"
+    }
+  },
+  "sprite": "mapbox://sprites/mapbox/streets-v11",
+  "glyphs": "mapbox://fonts/mapbox/{fontstack}/{range}.pbf",
+  "layers": [
+    {
+      "id": "background",
+      "type": "background",
+      "paint": {
+        "background-color": "#121212"
+      }
+    },
+    {
+      "id": "water",
+      "type": "fill",
+      "source": "mapbox-streets",
+      "source-layer": "water",
+      "paint": {
+        "fill-color": "#1a1f2b"
+      }
+    },
+    {
+      "id": "landuse",
+      "type": "fill",
+      "source": "mapbox-streets",
+      "source-layer": "landuse",
+      "paint": {
+        "fill-color": "#2e2e2e"
+      }
+    },
+    {
+      "id": "parks",
+      "type": "fill",
+      "source": "mapbox-streets",
+      "source-layer": "landuse",
+      "filter": ["==", "class", "park"],
+      "paint": {
+        "fill-color": "#364d34"
+      }
+    },
+    {
+      "id": "roads",
+      "type": "line",
+      "source": "mapbox-streets",
+      "source-layer": "road",
+      "paint": {
+        "line-color": "#3c3c3c",
+        "line-width": 1
+      }
+    },
+    {
+      "id": "road-highway",
+      "type": "line",
+      "source": "mapbox-streets",
+      "source-layer": "road",
+      "filter": ["==", "class", "motorway"],
+      "paint": {
+        "line-color": "#805b36",
+        "line-width": 1.5
+      }
+    },
+    {
+      "id": "buildings",
+      "type": "fill",
+      "source": "mapbox-streets",
+      "source-layer": "building",
+      "paint": {
+        "fill-color": "#525252"
+      }
+    },
+    {
+      "id": "poi-labels",
+      "type": "symbol",
+      "source": "mapbox-streets",
+      "source-layer": "poi_label",
+      "layout": {
+        "text-field": "{name_en}",
+        "text-font": ["Open Sans Regular"],
+        "text-size": 12
+      },
+      "paint": {
+        "text-color": "#cfcfcf"
+      }
+    },
+    {
+      "id": "place-labels",
+      "type": "symbol",
+      "source": "mapbox-streets",
+      "source-layer": "place_label",
+      "layout": {
+        "text-field": "{name_en}",
+        "text-font": ["Open Sans Regular"],
+        "text-size": 14
+      },
+      "paint": {
+        "text-color": "#f0f0f0"
+      }
+    }
+  ]
+}
